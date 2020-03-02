@@ -1,11 +1,11 @@
 language: ruby
 before_install:
   - cd docs
-  - gem install bundler
+#  - gem install bundler
 #before_script:
 #  - cd docs
 rvm:
-  - 2.7
+  - 2.5.3
 script:
   - bundle exec jekyll build
 
