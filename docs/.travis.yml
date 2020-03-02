@@ -1,0 +1,8 @@
+language: ruby
+rvm:
+  - 2.3
+script: cd docs/ && "bundle exec jekyll build"
+
+branches:
+  only:
+  - /.*/
