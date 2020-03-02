@@ -1,4 +1,6 @@
 language: ruby
+before_install:
+  - cd docs
 before_script:
   - cd docs
 rvm:
