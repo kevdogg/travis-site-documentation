@@ -2,8 +2,8 @@ language: ruby
 before_install:
   - cd docs
   - gem install bundler
-before_script:
-  - cd docs
+#before_script:
+#  - cd docs
 rvm:
   - 2.7
 script:
