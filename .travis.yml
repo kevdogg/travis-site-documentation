@@ -1,7 +1,9 @@
 language: ruby
+before_script:
+  - cd docs/
 rvm:
   - 2.3
-script: cd docs/ && "bundle exec jekyll build"
+script: "bundle exec jekyll build"
 
 branches:
   only:
