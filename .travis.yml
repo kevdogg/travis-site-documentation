@@ -1,6 +1,6 @@
 language: ruby
 before_script:
-  - cd docs/
+  - cd docs
 rvm:
   - 2.3
 script: "bundle exec jekyll build"
