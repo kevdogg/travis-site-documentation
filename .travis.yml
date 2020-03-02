@@ -19,6 +19,7 @@ deploy:
   skip-cleanup: true
   local_dir: docs
   repo: kevdogg/Site-Documentation
+  github_token: $GITHUB_TOKEN
   target_branch: master
   on:
     branch: master
