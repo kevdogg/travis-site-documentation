@@ -13,3 +13,12 @@ script:
 branches:
   only:
   - /.*/
+
+deploy:
+  provider: pages
+  skip-cleanup: true
+  local_dir: docs
+  repo: kevdogg/Site-Documentation
+  target_branch: master
+  on:
+    branch: master
