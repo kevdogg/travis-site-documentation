@@ -76,4 +76,4 @@ exclude:
   - vendor/gems/
   - vendor/ruby/
   - Rakefile
-  - README.md
+#  - README.md
