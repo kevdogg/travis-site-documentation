@@ -15,7 +15,7 @@ branches:
   - /.*/
 deploy:
   provider: pages
-  skip-cleanup: true
+  skip_cleanup: true
   repo: kevdogg/Site-Documentation
   github_token: $GITHUB_TOKEN
   target_branch: master
