@@ -34,6 +34,28 @@ remote_theme: pmarsceill/just-the-docs
 plugins:
   - jekyll-feed
 
+permalink: pretty
+exclude: ["*.gem", "Gemfile", "Gemfile.lock", "Rakefile", "README.md"]
+
+search_enabled: true
+
+# Set the search token separator for hyphenated-word search:
+search_tokenizer_separator: /[\s/]+/
+
+# Enable or disable heading anchors
+heading_anchors: true
+
+# Aux links for the upper right navigation
+aux_links:
+  "Authelia on GitHub":
+    - "//github.com/authelia/authelia"
+
+# Footer content appears at the bottom of every page's main content
+footer_content: "Copyright &copy; 2020 KevDog"
+
+# Color scheme currently only supports "dark" or nil (default)
+color_scheme: nil
+
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to
