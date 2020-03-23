@@ -1,1 +1,64 @@
 This is a file
+
+# Checklist
+{: .no_toc}
+
+- [ ] Obtain a FQDN for each &nbsp; **_"Protected Domain"_** &nbsp; and {{site.data.links.authelia-domain}} 
+- [ ] Add {{site.data.links.authelia-domain}} to your DNS records
+- [ ] Obtain SSL certificates for {{site.data.links.authelia-domain}} and for Protected Domains 
+- [ ] Configure Router to Open Ports 80/443 and forward to packets to server running reverse proxy
+- [ ] Configure server running reverse proxy to forward packets
+- [ ] Adjust firewall settings on router and server running reverse proxy to allow for incoming traffic.
+pre.highlight, figure.highlight { padding: 0.75rem; margin-bottom: 0; -webkit-overflow-scrolling: touch; background-color: #c2c2c2; }
+code {
+    font-family: "SFMono-Regular", Menlo, Consolas, Monospace;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+{% comment %}
+<div class="flexbox">
+  <div class="col"><h3>I am listed first in source order.</h3><p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p></div>
+  <div class="col"><p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p></div>
+  <div class="col"><p>
+      {% capture text %}{% include authelia.domain.com.cert.conf.txt.md %}{% endcapture %}
+      {{ text }}
+  </p></div>
+</div>
+</div>
+{% endcomment %}
+
+{% assign pages_list = site.html_pages | sort: "nav_order" %}
+{% capture text %}{{ site.pages }}{% endcapture %}
+SitePages: {{ text }}
+{% for page in pages_list %}
+  Page Title: {{ page.title }}
+  Page Nav_Order: {{ page.nav_order }}
+
+  SiteVariable: {{ site.html_pages.title }}
+  
+{% endfor %}
+
+&nbsp;  
+
+<div class="imagerowtxt">
+  <div class="imagecoltxt">
+    <div class="header">  Ubuntu Layout</div>
+    <div class="growtalltxt">
+      {% capture text %}{% include testfile.md %}{% endcapture %}
+      {{ text | markdownify }}
+    </div>
+  </div>
+</div>
+<div class="imagerowtxt">
+  <div class="imagecoltxt">
+    <div class="header">Arch Layout</div>
+    <div class="growtalltxt">
+      {% capture text %}{% include testfile.md %}{% endcapture %}
+      {{ text | markdownify }}
+    </div>
+  </div>
+</div>
+
+
+

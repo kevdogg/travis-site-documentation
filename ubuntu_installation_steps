@@ -1,0 +1,109 @@
+# run commands as root
+
+$ mkdir -p /etc/authelia/config↲
+$ mkdir -p /etc/docker/compose/authelia↲
+$ mkdir -p /etc/nginx/snippets /etc/nginx/vdomains↲
+$ mkdir -p /var/data/authelia /var/data/db↲
+
+$ apt install docker docker-compose postfix libsasl2-modules mailutils
+
+$ cd /etc/authelia/config
+$ vim users.yml
+
+# User Password
+$ sudo docker run authelia/authelia:latest authelia hash-password <yourpassword>
+
+
+
+# Choose Internet Site during Setup
+$ cd /etc/postfix
+$ vim main.cf
+
+# Add following
+# myhostname = smtp.<domain.com>
+# mydomain = <domain.com>
+# myorigin = $myhostname
+# alias_maps = hash:/etc/postfix/aliases
+# alias_database = $alias_maps
+# sendmail_path = /usr/sbin/sendmail
+# newaliases_path = /usr/bin/newaliases
+# mailq_path = /usr/bin/mailq
+# inet_protocols = ipv4
+#home_mailbox = Mail/
+#mynetworks="127.0.0.0/8 [::ffff:127.0.0.0]/104 [::1]/128"
+#inet_interfaces=loopback-only
+#disable_vrfy_command=yes
+#smtpd_helo_required=yes
+
+## SASL Option
+#smtp_sasl_auth_enable = yes
+#smtp_sasl_security_options = noanonymous
+
+## Global Client TLS Options
+#tls_random_source = dev:/dev/urandom
+#smtp_tls_CAfile = /etc/ssl/certs/ca-certificates.crt
+#smtp_use_tls = yes
+#
+### SMTP Parameters - (Medium) - Valid for Mailgun and Gmail
+#smtp_tls_mandatory_protocols = !SSLv2, !SSLv3, !TLSv1, !TLSv1.1
+#smtp_tls_protocols = !SSLv2, !SSLv3, !TLSv1, !TLSv1.1
+#smtp_tls_mandatory_ciphers = medium
+#tls_medium_cipherlist = ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384
+#
+## SMTP Parameters - (Modern) - Valid for Gmail
+#smtp_tls_mandatory_protocols = !SSLv2, !SSLv3, !TLSv1, !TLSv1.1, !TLSv1.2
+#smtp_tls_protocols = !SSLv2, !SSLv3, !TLSv1, !TLSv1.1, !TLSv1.2
+#
+## TLS Option (Port 587)
+#smtp_tls_security_level = encrypt
+#Gmail SMTP
+#relayhost = [smtp.gmail.com]:587
+#smtp_sasl_password_maps = hash:/etc/postfix/sasl_passwd_GMAIL_587
+## End TLS Options (Port 587)
+
+## TLS Option (Port 465)
+#smtp_tls_security_level = encrypt
+#smtp_tls_wrappermode = yes
+#Gmail SMTP
+#relayhost = [smtp.gmail.com]:465
+#smtp_sasl_password_maps = hash:/etc/postfix/sasl_passwd_GMAIL_465
+## End TLS Option (Prot 465)
+#
+# You will also need to create an /etc/postfix/aliases file.  Here is what mine looks like:
+#root:	kevdog
+#
+#kevdog:         kevdog@gohilton.com
+#
+#MAILER-DAEMON:	postmaster
+#postmaster:	root
+#
+#bin:		root
+#daemon:		root
+#named:		root
+#nobody:		root
+#uucp:		root
+#www:		root
+#ftp-bugs:	root
+#postfix:	root
+#
+#
+#manager:	root
+#dumper:		root
+#operator:	root
+#abuse:		postmaster
+#
+#decode:		root
+
+# After creating /etc/aliases - run the following two commands:
+# sudo newaliases
+# sudo postalias /etc/aliases
+#
+# Create the sasl_passwd_GMAIL_587 and sasl_passwd_GMAIL_465 files
+#
+# postmap sasl_passwd_GMAIL_587
+# postmap sasl_passwd_GMAIL_465
+#
+# chmod 600 sasl_passwd_GMAIL_587 sasl_passwd_GMAIL_465
+#
+# systemctl start postfix.service
+# systemctl enable postfix.service

@@ -1,0 +1,6 @@
+$ cd ~
+$ git clone https://github.com/acmesh-official/acme.sh.git
+$ cd ~/acme.sh
+$ ./acme.sh —upgrade —auto-upgrade
+$ ./acme.sh —install —accountemail <email_address>
+$ cd ~/.acme.sh

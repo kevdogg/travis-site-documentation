@@ -1,0 +1,15 @@
+```bash
+[Match]
+Name=eth0
+
+[Network]
+DHCP=ipv4
+
+##MODIFY FOR YOUR DOMAIN##
+DNS=10.0.1.1
+##
+
+IPForward=kernel
+
+
+```

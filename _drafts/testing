@@ -1,0 +1,9 @@
+{% comment %}
+<ol>
+{% for system in site.data.system_specs %}
+{% assign url =  system.name %}
+<li><a href="{% url %}">{{ system.name }}</a> - Version: {{ system.version }}</li>
+{% endfor %}
+ </ol>
+
+{% endcomment %}

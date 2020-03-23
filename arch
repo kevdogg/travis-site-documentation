@@ -1,0 +1,15 @@
+#run commands as root
+
+$ mkdir -p /etc/authelia/config
+$ mkdir -p /etc/docker/compose/authelia
+$ mkdir -p /etc/nginx/snippets /etc/nginx/vdomains
+$ mkdir -p /var/data/authelia /var/data/db
+
+$ pacman -S docker docker-compose postfix libsasl mailutils
+
+#Create ACL for authelia
+$ cd /etc/authelia/config
+$ vim users.yml
+
+$ sudo docker run authelia/authelia:latest authelia hash-password <yourpassword>
+

@@ -18,6 +18,8 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
+timezone: America/Chicago
+
 title: Authelia Documentation
 email: your-email@example.com
 description: Testing travis
@@ -33,6 +35,7 @@ remote_theme: pmarsceill/just-the-docs
 
 plugins:
   - jekyll-feed
+  - jekyll-liquify
 
 permalink: pretty
 #exclude: ["*.gem", "Gemfile", "Gemfile.lock", "Rakefile", "README.md"]
@@ -56,6 +59,13 @@ footer_content: "Copyright &copy; 2020 KevDog"
 # Color scheme currently only supports "dark" or nil (default)
 color_scheme: nil
 
+markdown: kramdown
+kramdown:
+  syntax_highlighter: rouge
+highlighter: rouge
+
+# includes_dir: assets/raw
+
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to
@@ -64,6 +74,11 @@ color_scheme: nil
 # Excluded items can be processed by explicitly listing the directories or
 # their entries' file path in the `include:` list.
 #
+#
+include:
+  - .htaccess
+  - .env
+
 exclude:
   - .sass-cache/
   - .jekyll-cache/

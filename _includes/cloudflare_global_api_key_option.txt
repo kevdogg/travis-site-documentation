@@ -1,0 +1,2 @@
+$ export CF_Key="<Cloudflare Global API Key>"
+$ export CF_Email="<Cloudflare Email>"

@@ -1,0 +1,20 @@
+- name: authelia/authelia
+  version: authelia:latest
+  link_name: docker_authelia
+  comment:
+
+- name: linuxserver/mariadb
+  version: linuxserver/mariadb:latest
+  link_name: docker_mysql
+  comment: MariaDB being utilized as there exists a compatibility issue with formal mySQL dataabase container
+
+- name: bitnami/redis
+  version: bitnami/redis:latest
+  link_name: docker_redis
+  comment: Container chosen due to ability to pass Redis password as ENV variable
+
+
+
+
+
+

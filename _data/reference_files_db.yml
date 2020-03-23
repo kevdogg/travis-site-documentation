@@ -1,0 +1,116 @@
+# This file is linked to /assets/files/links.yml
+# If adding Dictionary Entries to this file, please ensure you add the apppropriate link_name: <location> within /assets/files/links.yml
+# Without adding corresponding entry into /assets/files/links.yml, the database table will be popultated with the values below but the links will be broken
+
+- name: configuration.yml
+  link_name: configuration.yml
+  description: Main Authelia Configuration File
+  group: Authelia
+
+- name: .env
+  link_name: .env
+  description: Authelia's Docker's Environment Variables and Parameters
+  group: Docker
+
+- name: 20-wired.network
+  link_name: 20-wired.network
+  description: Network Configuration for for systemd-networkd
+  group: systemd-networkd
+
+- name: main.cf
+  link_name: main.cf
+  description: A working basic Postfix configuration to relay system mail through GMail
+  group: Postfix
+
+- name: aliases
+  link_name: aliases
+  description: Example aliases file for Postfix
+  group: Postfix
+
+- name: users.yml
+  link_name: users.yml
+  description: Example User Database
+  group: Authelia
+
+- name: users.yml.COMPLETE_EXAMPLE
+  link_name: users.yml.COMPLETE_EXAMPLE
+  description: A More Complete Sample User Database file
+  group: Authelia
+
+- name: authelia.domain.com.cert.conf
+  link_name: authelia.domain.com.cert.conf
+  description: Nginx Authelia SSL certificate Block
+  group: Nginx
+
+- name: domain.com.cert.conf
+  link_name: domain.com.cert.conf
+  description: Nginx \<domain.com\>  SSL certificate Block
+  group: Nginx
+
+- name: authelia.domain.com.conf
+  link_name: authelia.domain.com.conf
+  description: Authelia's Ngnix Virtual Domain Configuration File 
+  group: Nginx
+
+- name: authelia.location.conf
+  link_name: authelia.location.conf
+  description: Authelia's Virtual Endpoint created for Ngnix to Forward Auth Requests 
+  group: Nginx
+
+- name: authelia_auth.conf
+  link_name: authelia_auth.conf
+  description: Authelia's Nginx Authentication Headers for Virtual Domain 
+  group: Nginx
+
+- name: authelia_proxy.conf
+  link_name: authelia_proxy.conf
+  description: Authelia's Ngnix Reverse Proxy Configuration Header Directives 
+  group: Nginx
+
+- name: \<domain.com\>.conf
+  link_name: domain.com.conf
+  description: The "Protected Domain's" Nginx Virtual Domain Configuration File
+  group: Nginx
+
+- name: proxy-ssl-params.conf
+  link_name: proxy-ssl-params.conf
+  description: Proxy Parameters to Re-Encrypt connection to Backend/Upstream Servers - see [https://docs.nginx.com/nginx/admin-guide/security-controls/securing-tcp-traffic-upstream/](https://docs.nginx.com/nginx/admin-guide/security-controls/securing-tcp-traffic-upstream/)
+
+  group: Nginx
+
+
+- name: docker-compose-reload@.service
+  link_name: docker-compose-reload@.service
+  description: Authelia's systemd service configuration file to automatically reload/refresh Authelia's Docker Images - see <a href="/assets/raw/docker-compose-reload@.timer.txt">docker-compose-reload@.timer]</a>
+  group: systemd
+
+- name: docker-compose-reload@.timer
+  link_name: docker-compose-reload@.timer
+  description: Authelia's systemd timer configuration file to automatically reload/refresh Authelia's Docker Images
+  group: systemd
+
+- name: docker-compose.yml
+  link_name: docker-compose.yml
+  description: Authelia's Docker Compose File
+  group: Docker
+
+- name: docker-compose@.service
+  link_name: docker-compose@.service
+  description: Authelia's systemd service configuration file to start/stop/reload Authelia's docker-compose.yml
+  group: systemd
+
+- name: nginx.conf
+  link_name: nginx.conf
+  description: Example Main Configuration File for nginx
+  group: Nginx
+
+- name: ssl-modern-params.conf
+  link_name: ssl-modern-params.conf
+  description: Nginx Modern SSL configuration - see [https://ssl-config.mozilla.org/](https://ssl-config.mozilla.org/)
+  group: Nginx
+
+- name: ssl-params.conf
+  link_name: ssl-params.conf
+  description: Nginx Intermediate  SSL configuration - see [https://ssl-config.mozilla.org/](https://ssl-config.mozilla.org/)
+  group: Nginx
+

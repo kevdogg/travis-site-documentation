@@ -1,0 +1,10 @@
+$ export LE_DIR="/etc/letsencrypt/<domain_name>"
+$ mkdir -p ${LE_DIR}
+$ cd ~/.acme.sh
+$ ./acme.sh --issue --dns dns_cf -d <domain_name>
+$ ./acme.sh --install-cert -d <domain_name> \
+> --cert-file ${LE_DIR}/cert.pem \
+> --ca-file ${LE_DIR}/chain.pem \
+> --key-file ${LE_DIR}/privkey.pem \
+> --fullchain-file ${LE_DIR}/fullchain.pem \
+> --reloadcmd "<reload command>"

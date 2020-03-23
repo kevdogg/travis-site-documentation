@@ -1,0 +1,29 @@
+```bash
+# Basic Authelia Config
+# Send a subsequent request to Authelia to verify if the user is authenticated
+# and has the right permissions to access the resource.
+auth_request /authelia;
+# Set the `target_url` variable based on the request. It will be used to build the portal
+# URL with the correct redirection parameter.
+auth_request_set $target_url $scheme://$http_host$request_uri;
+# Set the X-Forwarded-User and X-Forwarded-Groups with the headers
+# returned by Authelia for the backends which can consume them.
+# This is not safe, as the backend must make sure that they come from the
+# proxy. In the future, it's gonna be safe to just use OAuth.
+auth_request_set $user $upstream_http_remote_user;
+auth_request_set $groups $upstream_http_remote_groups;
+proxy_set_header X-Forwarded-User $user;
+proxy_set_header X-Forwarded-Groups $groups;
+# If Authelia returns 401, then nginx redirects the user to the login portal.
+# If it returns 200, then the request pass through to the backend.
+# For other type of errors, nginx will handle them as usual.
+
+##MODIFY FOR YOUR DOMAIN##
+#
+# If ngnix is run within a docker container, the following line would be
+# set -> error_page 401 =302 https://authelia/?rd=$target_url;
+# Please adjust port number to port number which is specified for the authelia service within docker-config.yml
+#
+error_page 401 =302 https://authelia.<domain.com>/?rd=$target_url;
+##
+```

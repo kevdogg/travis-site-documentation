@@ -1,0 +1,19 @@
+{% capture markdown_code %}```{{ include.lang }}
+{{ include.code }}
+```{% endcapture %}
+<div class="containerlayout">
+  <div class="itemlayout">
+    {{ include.header }}
+  </div>
+  <div class="itemlayout">
+    <div
+      class="copy-code-button"
+      data-code="{{ include.code | escape }}"
+      title="Copy to clipboard"
+      tabindex="0"
+    ></div>
+  </div>
+  <div class="itemlayout">
+    {{ markdown_code | markdownify }}
+  </div>
+</div>

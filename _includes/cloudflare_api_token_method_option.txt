@@ -1,0 +1,2 @@
+$ export CF_Token="<Cloudflare Token>"
+$ export CF_Account_ID="<Cloudflare Account ID>"
