@@ -452,7 +452,29 @@ p.space { margin: 5px 10px 5px 10px !important; }
   width: 100%;
   min-height: 200px;
   max-height: 300px;
+  text-align: center;
+/*  border: 1px solid blue;*/
+  display: flex;
+  flex-direction: column;
 }
+.container1x2 .item .col {
+  flex-direction: column;
+/*  border: 1px solid orange;*/
+  display: flex;
+}
+.container1x2 .item .col:first-child {
+  flex: 1;
+  justify-content: center;
+}
+.container1x2 .item .col:last-child {
+  align-items: center;
+  border-top: 1px solid black;
+}
+p {
+  margin-bottom: auto;
+}
+
+
 
 .imgfitdiv {
   max-width: 100%;

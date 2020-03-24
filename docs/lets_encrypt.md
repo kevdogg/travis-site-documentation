@@ -7,12 +7,38 @@ nav_order: 170
 ---
 <div class="container1x2">
   <div class="item">
+    <div class="col">
+      <div>
+        <img class="imgfitdiv" src="/assets/images/LetsEncryptLogo.png" alt="Let's Encrypt Logo">
+      </div>
+    </div>
+    <div class="col">
+      {% capture text %}[Let's Encrypt]({{ site.data.links.lets_encrypt}}){% endcapture %}
+      {{ text | markdownify }}
+    </div>
+  </div>
+  <div class="item">
+    <div class="col">
+      <div>
+        <img class="imgfitdive" src="/assets/images/CloudFlare.jpg" alt="CloudFlare Logo">
+      </div>
+    </div>
+    <div class="col">
+      {% capture text %}[Cloudflare]({{ site.data.links.lets_cloudflare}}){% endcapture %}
+      {{ text | markdownify }}
+    </div>
+  </div>
+</div>
+
+<div class="container1x2">
+  <div class="item">
     <img class="imgfitdiv" src="/assets/images/LetsEncryptLogo.png" alt="Let's Encrypt Logo">
   </div>
   <div class="item"> 
     <img class="imgfitdive" src="/assets/images/CloudFlare.jpg" alt="CloudFlare Logo">
   </div>
 </div>
+
 
 ## Let's Encrypt SSL Certificates
 
